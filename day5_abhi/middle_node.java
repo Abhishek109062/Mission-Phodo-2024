@@ -1,5 +1,3 @@
-package day5_abhi;
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -10,21 +8,16 @@ package day5_abhi;
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
-//Tortoise-Hare-Approach
-//using slow fast method
 class Solution {
-    public ListNode reverseList(ListNode head) {
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
 
-        ListNode dummy = null;
-        
-        while(head != null){
-            ListNode temp = head.next;
-            head.next = dummy;
-            dummy  = head;
-            head = temp;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        return dummy;
+        return slow;
     }
 }
